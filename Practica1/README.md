@@ -16,3 +16,12 @@
 db["Productos"].updateOne( { "nombre": "Portátil Pro-Book X1" },   // filtro para encontrar el producto
   { $inc: { "stock": 10 } }       )
 ```
+
+## Ejercicio 4: Añadir una nueva review a un producto
+
+```bash
+db["Productos"].updateOne({ "nombre": "Portátil Pro-Book X1" },{$push: {"reviews": {usuario: "CarlosM",
+        puntuacion: 4,
+        comentario: "Buen portátil, aunque algo pesado."}}})
+```
+
