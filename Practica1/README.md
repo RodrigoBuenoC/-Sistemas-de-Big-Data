@@ -25,3 +25,39 @@ db["Productos"].updateOne({ "nombre": "Portátil Pro-Book X1" },{$push: {"review
         comentario: "Buen portátil, aunque algo pesado."}}})
 ```
 
+# Parte 3 : Pipeline
+
+## En este caso, se desea calcular la puntuación media de las reseñas 
+## para cada producto de la colección.
+
+```bash
+db["Productos"].aggregate([
+  { $unwind: "$reviews" },
+  { $group: {
+      _id: "$_id",                       
+      avgPuntuacion: { $avg: "$reviews.puntuacion" }
+    }
+  }
+])
+```
+
+# Parte 4 : Ejercicios adicionales
+
+## 1 Mostrar productos con bajo stock
+
+```bash
+{ stock: { $lt: 5 } }
+```
+## 2 Proyección de campos específicos 
+
+```bash
+ {}, { nombre: 1,precio: 1, _id: 0 }
+
+````
+
+## 3 Eliminar un producto por su identificador
+
+```bash
+deleteOne({_id: "SKU-001"})
+
+```
