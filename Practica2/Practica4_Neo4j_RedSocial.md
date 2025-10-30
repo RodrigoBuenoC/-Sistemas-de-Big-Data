@@ -103,5 +103,6 @@ RETURN b;
 ## Ejecuta algunas de tus consultas anteriores en el Neo4j Browser.
 
   ![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/1.png)
+  ![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/2.png)
 
 
