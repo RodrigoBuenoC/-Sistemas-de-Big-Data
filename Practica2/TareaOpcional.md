@@ -10,7 +10,7 @@ npm install express neo4j-driver
 ## 2 .Crea un archivo index.js
 
 
-````bash
+```bash
 const express = require('express');
 const neo4j = require('neo4j-driver');
 const app = express();
@@ -68,10 +68,7 @@ app.listen(3000, () => console.log('Servidor escuchando en http://localhost:3000
 node index.js
 ```
 ## Prueba la API en POSTMAN: 
-```bash
-http://localhost:3000/users
-```
- ![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/1.png)
   ![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/2.png)
+  ![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/3.png)
 
 
