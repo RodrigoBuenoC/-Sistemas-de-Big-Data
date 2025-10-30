@@ -71,5 +71,6 @@ node index.js
 ```bash
 http://localhost:3000/users
 ```
- ![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/2.png)
+![2](https://raw.githubusercontent.com/RodrigoBuenoC/-Sistemas-de-Big-Data/main/Practica2/img/2.png)
+
 
