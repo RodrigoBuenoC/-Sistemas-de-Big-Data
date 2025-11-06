@@ -18,8 +18,6 @@
 # Reflexión Final: DynamoDB en el Ecosistema NoSQL
 
 > [!NOTE]
->`Comparativa:`DynamoDB es Clave-Valor mientras MongoDB es documental la forma de gestionar datos en mas intuitiva en DynamoDB.
- 
->`Ventajas Serverless:`DynamoDB AWS gestiona todo mientras MongoDB requiere que tú gestiones los servidores.
-
->`Experiencia:` DynamoDB es muy inuitivo para mi gusto , no ha habido complicaciones ninguna
+ >`Comparativa:`DynamoDB es Clave-Valor mientras MongoDB es documental la forma de gestionar datos en mas intuitiva en DynamoDB.
+ >`Ventajas Serverless:`DynamoDB AWS gestiona todo mientras MongoDB requiere que tú gestiones los servidores.
+ >`Experiencia:` DynamoDB es muy inuitivo para mi gusto , no ha habido complicaciones ninguna
