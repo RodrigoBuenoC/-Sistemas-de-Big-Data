@@ -71,11 +71,6 @@ def delete_order(order_id):
         return response
     except Exception as e:
         print(f"Error al eliminar el pedido: {e}")
-# 5. Eliminar el pedido
-delete_order("ORD-PY-1001")
-get_order("ORD-PY-1001") # Verificamos que ya no existe
-
-
 
 
 # Leer pedido por Nombre       
