@@ -123,6 +123,7 @@ aws dynamodb delete-item \
     --key '{"sensor_id": {"S": "Sensor2"}, "timestamp": {"S": "2025-01-01T10:00:00Z"}}'
 ```
 ![5](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica5/img/5png)
+
 ![5.1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica5/img/5.1.png)
 
 
