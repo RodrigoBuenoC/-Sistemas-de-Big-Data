@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel Delivery - Proyecto NoSQL</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #eef1f5;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background: #212529;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 26px;
+      font-weight: bold;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    h2 {
+      margin-top: 40px;
+      color: #333;
+    }
+
+    .box {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      margin-top: 20px;
+      box-shadow: 0px 3px 8px rgba(0,0,0,0.2);
+    }
+
+    button {
+      padding: 10px 16px;
+      background: #007bff;
+      border: none;
+      border-radius: 6px;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+      margin-right: 8px;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    pre {
+      background: #1e1e1e;
+      color: #00ff66;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      max-height: 300px;
+    }
+
+    input, select {
+      padding: 8px;
+      margin: 5px;
+      border-radius: 6px;
+      border: 1px solid #aaa;
+    }
+
+    .row {
+      margin-bottom: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>Sistema Delivery - CRUD + Consulta Compleja</header>
+
+<div class="container">
+
+  <!-- ========================= -->
+  <!-- RESTAURANTES -->
+  <!-- ========================= -->
+  <h2>Restaurantes</h2>
+  <div class="box">
+    <button onclick="getRestaurantes()">Mostrar restaurantes</button>
+
+    <h3>Crear restaurante</h3>
+    <div class="row">
+      <input id="restName" placeholder="Nombre">
+      <input id="restCat" placeholder="Categorias separadas por coma">
+    </div>
+    <button onclick="crearRestaurante()">Crear</button>
+
+    <h3>Eliminar restaurante</h3>
+    <input id="restDeleteId" placeholder="ID">
+    <button onclick="borrarRestaurante()">Eliminar</button>
+
+    <pre id="restaurantes"></pre>
+  </div>
+
+  <!-- ========================= -->
+  <!-- RIDERS -->
+  <!-- ========================= -->
+  <h2>Riders</h2>
+  <div class="box">
+    <button onclick="getRiders()">Mostrar riders</button>
+
+    <h3>Crear rider</h3>
+    <input id="riderName" placeholder="Nombre">
+    <input id="riderVeh" placeholder="Vehículo">
+    <select id="riderEstado">
+      <option value="disponible">disponible</option>
+      <option value="ocupado">ocupado</option>
+    </select>
+    <button onclick="crearRider()">Crear</button>
+
+    <h3>Eliminar rider</h3>
+    <input id="riderDeleteId" placeholder="ID">
+    <button onclick="borrarRider()">Eliminar</button>
+
+    <pre id="riders"></pre>
+  </div>
+
+  <!-- ========================= -->
+  <!-- USUARIOS -->
+  <!-- ========================= -->
+  <h2>Usuarios</h2>
+  <div class="box">
+    <button onclick="getUsuarios()">Mostrar usuarios</button>
+
+    <h3>Crear usuario</h3>
+    <input id="userName" placeholder="Nombre">
+    <input id="userDir" placeholder="Direccion">
+    <input id="userTel" placeholder="Teléfono">
+    <button onclick="crearUsuario()">Crear</button>
+
+    <h3>Eliminar usuario</h3>
+    <input id="userDeleteId" placeholder="ID">
+    <button onclick="borrarUsuario()">Eliminar</button>
+
+    <pre id="usuarios"></pre>
+  </div>
+
+  <!-- ========================= -->
+  <!-- PEDIDOS -->
+  <!-- ========================= -->
+  <h2>Pedidos</h2>
+  <div class="box">
+    <button onclick="getPedidos()">Mostrar pedidos</button>
+
+    <h3>Crear pedido</h3>
+    <input id="pedidoUser" placeholder="usuarioId">
+    <input id="pedidoRest" placeholder="restauranteId">
+    <input id="pedidoRider" placeholder="riderId (opcional)">
+    <input id="pedidoPlato" placeholder="Plato">
+    <input id="pedidoCant" placeholder="Cantidad">
+    <input id="pedidoPrecio" placeholder="Precio unitario">
+    <button onclick="crearPedido()">Crear</button>
+
+    <h3>Eliminar pedido</h3>
+    <input id="pedidoDeleteId" placeholder="ID">
+    <button onclick="borrarPedido()">Eliminar</button>
+
+    <pre id="pedidos"></pre>
+  </div>
+
+  <!-- ========================= -->
+  <!-- CONSULTA COMPLEJA -->
+  <!-- ========================= -->
+  <h2>Consulta Compleja</h2>
+  <div class="box">
+    <button onclick="consultaActivos()">Pedidos activos agrupados por rider</button>
+    <pre id="consulta"></pre>
+  </div>
+
+</div>
+
+<script>
+  const API = "http://localhost:3000";
+
+  // ============================
+  // GET
+  // ============================
+
+  function getRestaurantes(){
+    fetch(`${API}/restaurantes`)
+      .then(r => r.json())
+      .then(d => mostrar("restaurantes", d));
+  }
+
+  function getRiders(){
+    fetch(`${API}/riders`)
+      .then(r => r.json())
+      .then(d => mostrar("riders", d));
+  }
+
+  function getUsuarios(){
+    fetch(`${API}/usuarios`)
+      .then(r => r.json())
+      .then(d => mostrar("usuarios", d));
+  }
+
+  function getPedidos(){
+    fetch(`${API}/pedidos`)
+      .then(r => r.json())
+      .then(d => mostrar("pedidos", d));
+  }
+
+  // ============================
+  // POST
+  // ============================
+
+  function crearRestaurante(){
+    const nombre = document.getElementById("restName").value;
+    const categorias = document.getElementById("restCat").value.split(",");
+
+    fetch(`${API}/restaurantes`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, categorias })
+    });
+  }
+
+  function crearRider(){
+    const nombre = document.getElementById("riderName").value;
+    const vehiculo = document.getElementById("riderVeh").value;
+    const estado = document.getElementById("riderEstado").value;
+
+    fetch(`${API}/riders`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, vehiculo, estado })
+    });
+  }
+
+  function crearUsuario(){
+    const nombre = document.getElementById("userName").value;
+    const direccion = document.getElementById("userDir").value;
+    const telefono = document.getElementById("userTel").value;
+
+    fetch(`${API}/usuarios`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ nombre, direccion, telefono })
+    });
+  }
+
+  function crearPedido(){
+    const usuarioId = document.getElementById("pedidoUser").value;
+    const restauranteId = document.getElementById("pedidoRest").value;
+    const riderId = document.getElementById("pedidoRider").value || null;
+
+    const plato = document.getElementById("pedidoPlato").value;
+    const cantidad = Number(document.getElementById("pedidoCant").value);
+    const precio_unitario = Number(document.getElementById("pedidoPrecio").value);
+
+    const items = [{ plato, cantidad, precio_unitario }];
+
+    fetch(`${API}/pedidos`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ usuarioId, restauranteId, riderId, items })
+    });
+  }
+
+  // ============================
+  // DELETE
+  // ============================
+
+  function borrarRestaurante(){
+    const id = document.getElementById("restDeleteId").value;
+    fetch(`${API}/restaurantes/${id}`, { method: "DELETE" });
+  }
+
+  function borrarRider(){
+    const id = document.getElementById("riderDeleteId").value;
+    fetch(`${API}/riders/${id}`, { method: "DELETE" });
+  }
+
+  function borrarUsuario(){
+    const id = document.getElementById("userDeleteId").value;
+    fetch(`${API}/usuarios/${id}`, { method: "DELETE" });
+  }
+
+  function borrarPedido(){
+    const id = document.getElementById("pedidoDeleteId").value;
+    fetch(`${API}/pedidos/${id}`, { method: "DELETE" });
+  }
+
+  // ============================
+  // CONSULTA COMPLEJA
+  // ============================
+
+  function consultaActivos(){
+    fetch(`${API}/pedidos/activos`)
+      .then(r => r.json())
+      .then(d => mostrar("consulta", d));
+  }
+
+  // ============================
+  // Mostrar
+  // ============================
+
+  function mostrar(id, data){
+    document.getElementById(id).textContent = JSON.stringify(data, null, 2);
+  }
+</script>
+
+</body>
+</html>
