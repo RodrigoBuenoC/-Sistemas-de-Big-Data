@@ -50,6 +50,7 @@
       cursor: pointer;
       margin-right: 8px;
       margin-top: 8px;
+      transition: 0.2s;
     }
 
     button:hover {
@@ -72,8 +73,20 @@
       border: 1px solid #aaa;
     }
 
-    .row {
-      margin-bottom: 10px;
+    #mensaje {
+      background: #d1e7dd;
+      color: #0f5132;
+      padding: 12px;
+      margin-top: 10px;
+      border-radius: 8px;
+      display: none;
+      font-weight: bold;
+      border: 1px solid #badbcc;
+    }
+    #mensaje.error {
+      background: #f8d7da;
+      color: #842029;
+      border: 1px solid #f5c2c7;
     }
   </style>
 </head>
@@ -82,6 +95,8 @@
 <header>Sistema Delivery - CRUD + Consulta Compleja</header>
 
 <div class="container">
+
+  <div id="mensaje"></div>
 
   <!-- ========================= -->
   <!-- RESTAURANTES -->
@@ -184,131 +199,190 @@
 <script>
   const API = "http://localhost:3000";
 
-  // ============================
-  // GET
-  // ============================
+  // Mostrar mensaje bonito arriba
+  function mensaje(texto, error = false) {
+    const box = document.getElementById("mensaje");
+    box.style.display = "block";
+    box.textContent = texto;
+    box.className = error ? "error" : "";
+    setTimeout(() => box.style.display = "none", 3000);
+  }
 
-  function getRestaurantes(){
+  // Mostrar datos en pantalla
+  function mostrar(id, data){
+    document.getElementById(id).textContent = JSON.stringify(data, null, 2);
+  }
+
+  // ======================
+  // GET generales
+  // ======================
+  const getRestaurantes = () =>
     fetch(`${API}/restaurantes`)
       .then(r => r.json())
       .then(d => mostrar("restaurantes", d));
-  }
 
-  function getRiders(){
+  const getRiders = () =>
     fetch(`${API}/riders`)
       .then(r => r.json())
       .then(d => mostrar("riders", d));
-  }
 
-  function getUsuarios(){
+  const getUsuarios = () =>
     fetch(`${API}/usuarios`)
       .then(r => r.json())
       .then(d => mostrar("usuarios", d));
-  }
 
-  function getPedidos(){
+  const getPedidos = () =>
     fetch(`${API}/pedidos`)
       .then(r => r.json())
       .then(d => mostrar("pedidos", d));
-  }
 
-  // ============================
-  // POST
-  // ============================
+  // ======================
+  // POST (Crear)
+  // ======================
 
   function crearRestaurante(){
-    const nombre = document.getElementById("restName").value;
-    const categorias = document.getElementById("restCat").value.split(",");
+    const nombre = restName.value;
+    const categorias = restCat.value.split(",");
 
     fetch(`${API}/restaurantes`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, categorias })
-    });
+    })
+    .then(() => {
+      mensaje("Restaurante creado correctamente");
+      restName.value = "";
+      restCat.value = "";
+      getRestaurantes();
+    })
+    .catch(() => mensaje("Error creando restaurante", true));
   }
 
   function crearRider(){
-    const nombre = document.getElementById("riderName").value;
-    const vehiculo = document.getElementById("riderVeh").value;
-    const estado = document.getElementById("riderEstado").value;
+    const nombre = riderName.value;
+    const vehiculo = riderVeh.value;
+    const estado = riderEstado.value;
 
     fetch(`${API}/riders`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ nombre, vehiculo, estado })
-    });
+    })
+    .then(() => {
+      mensaje("Rider creado");
+      riderName.value = "";
+      riderVeh.value = "";
+      getRiders();
+    })
+    .catch(() => mensaje("Error creando rider", true));
   }
 
   function crearUsuario(){
-    const nombre = document.getElementById("userName").value;
-    const direccion = document.getElementById("userDir").value;
-    const telefono = document.getElementById("userTel").value;
-
     fetch(`${API}/usuarios`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ nombre, direccion, telefono })
-    });
+      body: JSON.stringify({
+        nombre: userName.value,
+        direccion: userDir.value,
+        telefono: userTel.value
+      })
+    })
+    .then(() => {
+      mensaje("Usuario creado");
+      userName.value = "";
+      userDir.value = "";
+      userTel.value = "";
+      getUsuarios();
+    })
+    .catch(() => mensaje("Error creando usuario", true));
   }
 
   function crearPedido(){
-    const usuarioId = document.getElementById("pedidoUser").value;
-    const restauranteId = document.getElementById("pedidoRest").value;
-    const riderId = document.getElementById("pedidoRider").value || null;
-
-    const plato = document.getElementById("pedidoPlato").value;
-    const cantidad = Number(document.getElementById("pedidoCant").value);
-    const precio_unitario = Number(document.getElementById("pedidoPrecio").value);
-
-    const items = [{ plato, cantidad, precio_unitario }];
+    const datos = {
+      usuarioId: pedidoUser.value,
+      restauranteId: pedidoRest.value,
+      riderId: pedidoRider.value || null,
+      items: [{
+        plato: pedidoPlato.value,
+        cantidad: Number(pedidoCant.value),
+        precio_unitario: Number(pedidoPrecio.value)
+      }]
+    };
 
     fetch(`${API}/pedidos`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ usuarioId, restauranteId, riderId, items })
-    });
+      body: JSON.stringify(datos)
+    })
+    .then(() => {
+      mensaje("Pedido creado");
+      pedidoUser.value = "";
+      pedidoRest.value = "";
+      pedidoRider.value = "";
+      pedidoPlato.value = "";
+      pedidoCant.value = "";
+      pedidoPrecio.value = "";
+      getPedidos();
+    })
+    .catch(() => mensaje("Error creando pedido", true));
   }
 
-  // ============================
-  // DELETE
-  // ============================
+  // ======================
+  // DELETE (Eliminar)
+  // ======================
 
   function borrarRestaurante(){
-    const id = document.getElementById("restDeleteId").value;
-    fetch(`${API}/restaurantes/${id}`, { method: "DELETE" });
+    fetch(`${API}/restaurantes/${restDeleteId.value}`, { method: "DELETE" })
+      .then(() => {
+        mensaje("Restaurante eliminado");
+        restDeleteId.value = "";
+        getRestaurantes();
+      })
+      .catch(() => mensaje("Error eliminando restaurante", true));
   }
 
   function borrarRider(){
-    const id = document.getElementById("riderDeleteId").value;
-    fetch(`${API}/riders/${id}`, { method: "DELETE" });
+    fetch(`${API}/riders/${riderDeleteId.value}`, { method: "DELETE" })
+      .then(() => {
+        mensaje("Rider eliminado");
+        riderDeleteId.value = "";
+        getRiders();
+      })
+      .catch(() => mensaje("Error eliminando rider", true));
   }
 
   function borrarUsuario(){
-    const id = document.getElementById("userDeleteId").value;
-    fetch(`${API}/usuarios/${id}`, { method: "DELETE" });
+    fetch(`${API}/usuarios/${userDeleteId.value}`, { method: "DELETE" })
+      .then(() => {
+        mensaje("Usuario eliminado");
+        userDeleteId.value = "";
+        getUsuarios();
+      })
+      .catch(() => mensaje("Error eliminando usuario", true));
   }
 
   function borrarPedido(){
-    const id = document.getElementById("pedidoDeleteId").value;
-    fetch(`${API}/pedidos/${id}`, { method: "DELETE" });
+    fetch(`${API}/pedidos/${pedidoDeleteId.value}`, { method: "DELETE" })
+      .then(() => {
+        mensaje("Pedido eliminado");
+        pedidoDeleteId.value = "";
+        getPedidos();
+      })
+      .catch(() => mensaje("Error eliminando pedido", true));
   }
 
-  // ============================
+  // ======================
   // CONSULTA COMPLEJA
-  // ============================
+  // ======================
 
   function consultaActivos(){
     fetch(`${API}/pedidos/activos`)
       .then(r => r.json())
-      .then(d => mostrar("consulta", d));
-  }
-
-  // ============================
-  // Mostrar
-  // ============================
-
-  function mostrar(id, data){
-    document.getElementById(id).textContent = JSON.stringify(data, null, 2);
+      .then(d => {
+        mostrar("consulta", d);
+        mensaje("Consulta ejecutada");
+      })
+      .catch(() => mensaje("Error ejecutando consulta", true));
   }
 </script>
 
