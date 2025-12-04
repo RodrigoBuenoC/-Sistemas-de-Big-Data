@@ -1,3 +1,29 @@
+const express = require("express");
+const { MongoClient, ObjectId } = require("mongodb");
+
+const app = express();
+app.use(express.json());
+
+const uri = "mongodb+srv://moorichee2026_db_user:Tontodelculo99@repartocomida.0hlca5u.mongodb.net/";
+
+let db;
+const oid = id => new ObjectId(id);
+
+// Conexión a MongoDB usando MongoClient
+(async () => {
+  try {
+    const client = new MongoClient(uri);
+    await client.connect();
+
+    db = client.db("test");
+
+    console.log("MongoDB conectado");
+  } catch (err) {
+    console.error("Error conectando a MongoDB:", err);
+  }
+})();
+
+
 // ================================
 // RESTAURANTES CRUD
 // ================================
@@ -14,6 +40,7 @@ app.delete('/restaurantes/:id', async (req, res) => {
   const id = oid(req.params.id);
   res.json(await db.collection('restaurantes').deleteOne({ _id: id }));
 });
+
 
 // ================================
 // RIDERS CRUD
@@ -32,6 +59,7 @@ app.delete('/riders/:id', async (req, res) => {
   res.json(await db.collection('riders').deleteOne({ _id: id }));
 });
 
+
 // ================================
 // USUARIOS CRUD
 // ================================
@@ -49,6 +77,7 @@ app.delete('/usuarios/:id', async (req, res) => {
   res.json(await db.collection('usuarios').deleteOne({ _id: id }));
 });
 
+
 // ================================
 // PEDIDOS CRUD
 // ================================
@@ -56,8 +85,14 @@ app.get('/pedidos', async (req, res) => {
   res.json(await db.collection('pedidos').find().toArray());
 });
 
+// función para calcular total
+function calcTotal(items) {
+  return items.reduce((t, item) => t + item.precio * item.cantidad, 0);
+}
+
 app.post('/pedidos', async (req, res) => {
   const datos = req.body;
+
   datos.usuarioId = oid(datos.usuarioId);
   datos.restauranteId = oid(datos.restauranteId);
   datos.riderId = datos.riderId ? oid(datos.riderId) : null;
@@ -74,9 +109,9 @@ app.delete('/pedidos/:id', async (req, res) => {
   res.json(await db.collection('pedidos').deleteOne({ _id: id }));
 });
 
+
 // ================================
 // CONSULTA COMPLEJA
-// Pedidos activos agrupados por rider
 // ================================
 app.get('/pedidos/activos', async (req, res) => {
   const pipeline = [
@@ -101,3 +136,7 @@ app.get('/pedidos/activos', async (req, res) => {
   ];
   res.json(await db.collection('pedidos').aggregate(pipeline).toArray());
 });
+
+
+// Iniciar servidor
+app.listen(3000, () => console.log("API escuchando en puerto 3000"));
