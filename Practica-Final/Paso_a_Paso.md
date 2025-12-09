@@ -1,6 +1,6 @@
 ## Crear un Cluster en MongoDB
 
-![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/crear_cluster.png)
+![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/crear_cluster.png)
 
 ## Conectarse al cluster desde MongodbCompass
 
@@ -8,8 +8,8 @@
 mongodb+srv://usuario:password@cluster0.mongodb.net/mydb?retryWrites=true&w=majority
 ```
 
-![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/conectar_cluster.png)
-![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/conectar_compass.png)
+![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/conectar_cluster.png)
+![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/conectar_compass.png)
 
 
 ## Crear una API (Postman)
@@ -237,7 +237,7 @@ node index.js
 
 MongoDB conectado
 
-![4](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/Postman.png)
+![4](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/Postman.png)
 
 ## Crear Fronted
 
@@ -256,7 +256,7 @@ const API = "http://localhost:3000";
  > Los archivos `index.html` , `style.css` y `script.js` se han generado con Chat GPT
 
 
-![5](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/Fronted.png)
+![5](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/Fronted.png)
 
 
 ## Endpoint creados funcionales,
