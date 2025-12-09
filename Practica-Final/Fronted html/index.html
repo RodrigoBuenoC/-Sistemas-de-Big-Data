@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🛵 Panel Delivery - Proyecto NoSQL</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Sistema Delivery - CRUD + Consulta Compleja</h1>
+        <p>Gestión de Restaurantes, Riders, Usuarios y Pedidos</p>
+    </header>
+
+    <div class="container">
+
+        <section class="module">
+            <h2>🍽️ Restaurantes</h2>
+            <div class="box">
+                <button onclick="getRestaurantes()" class="btn-primary">Mostrar restaurantes</button>
+
+                <h3>Crear restaurante</h3>
+                <div class="row">
+                    <input id="restName" placeholder="Nombre">
+                    <br>
+                    <input id="restCat" placeholder="Categorías separadas por coma">
+                </div>
+                <button onclick="crearRestaurante()" class="btn-success">Crear</button>
+
+                <h3>Eliminar restaurante</h3>
+                <input id="restDeleteId" placeholder="ID">
+                <button onclick="borrarRestaurante()" class="btn-danger">Eliminar</button>
+
+                <pre id="restaurantes"></pre>
+            </div>
+        </section>
+
+        <section class="module">
+            <h2>🏍️ Riders</h2>
+            <div class="box">
+                <button onclick="getRiders()" class="btn-primary">Mostrar riders</button>
+
+                <h3>Crear rider</h3>
+                <input id="riderName" placeholder="Nombre">
+                <br>
+                <br>
+                <input id="riderVeh" placeholder="Vehículo">
+                <br>
+                <br>
+                <select id="riderEstado">
+                    <option value="disponible">disponible</option>
+                    <option value="ocupado">ocupado</option>
+                </select>
+                <button onclick="crearRider()" class="btn-success">Crear</button>
+
+                <h3>Eliminar rider</h3>
+                <input id="riderDeleteId" placeholder="ID">
+                <button onclick="borrarRider()" class="btn-danger">Eliminar</button>
+
+                <pre id="riders"></pre>
+            </div>
+        </section>
+
+        <section class="module">
+            <h2>🧑 Usuarios</h2>
+            <div class="box">
+                <button onclick="getUsuarios()" class="btn-primary">Mostrar usuarios</button>
+
+                <h3>Crear usuario</h3>
+                <input id="userName" placeholder="Nombre">
+                <br>
+                <br>
+                <input id="userDir" placeholder="Dirección">
+                <br>
+                <br>
+                <input id="userTel" placeholder="Teléfono">
+                <button onclick="crearUsuario()" class="btn-success">Crear</button>
+
+                <h3>Eliminar usuario</h3>
+                <input id="userDeleteId" placeholder="ID">
+                <button onclick="borrarUsuario()" class="btn-danger">Eliminar</button>
+
+                <pre id="usuarios"></pre>
+            </div>
+        </section>
+
+        <section class="module">
+            <h2>📦 Pedidos</h2>
+            <div class="box">
+                <button onclick="getPedidos()" class="btn-primary">Mostrar pedidos</button>
+
+                <h3>Crear pedido</h3>
+                <input id="pedidoUser" placeholder="usuarioId">
+                <input id="pedidoRest" placeholder="restauranteId">
+                <input id="pedidoRider" placeholder="riderId (opcional)">
+                <input id="pedidoPlato" placeholder="Plato">
+                <input id="pedidoCant" placeholder="Cantidad" type="number" min="1">
+                <input id="pedidoPrecio" placeholder="Precio unitario" type="number" min="0">
+                <button onclick="crearPedido()" class="btn-success">Crear</button>
+
+                <h3>Eliminar pedido</h3>
+                <input id="pedidoDeleteId" placeholder="ID">
+                <button onclick="borrarPedido()" class="btn-danger">Eliminar</button>
+
+                <pre id="pedidos"></pre>
+            </div>
+        </section>
+
+        <section class="module">
+            <h2>🔎 Consulta Compleja</h2>
+            <div class="box query-box">
+                <button onclick="consultaActivos()" class="btn-info">Pedidos activos agrupados por rider</button>
+                <pre id="consulta"></pre>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
