@@ -1,3 +1,28 @@
+## Crear un Cluster en MongoDB
+
+![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/crear_cluster.png)
+
+## Conectarse al cluster desde MongodbCompass
+
+```bash
+mongodb+srv://usuario:password@cluster0.mongodb.net/mydb?retryWrites=true&w=majority
+```
+
+![2](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/conectar_cluster.png)
+![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/conectar_compass.png)
+
+
+## Crear una API (Postman)
+
+Para ello necesitamos un archivo `index.js` para concertar la BBDD  con Postman
+
+Instalamos dependencias:
+
+```bash
+npm init -y
+```
+
+```bash
 const express = require("express");
 const cors = require("cors");
 const { MongoClient, ObjectId } = require("mongodb");
@@ -201,3 +226,39 @@ app.get('/pedidos/activos', async (req, res) => {
 // INICIAR SERVIDOR
 // ================================
 app.listen(3000, () => console.log("API escuchando en puerto 3000"));
+
+```
+
+Para conectarlas se ejecuta el comando Node
+
+```bash 
+node index.js
+```
+
+MongoDB conectado
+
+![4](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/Postman.png)
+
+## Crear Fronted
+
+Se ha creado archivos `.html` , `.css` , `.js`
+
+Dentro del archivo `.js`
+
+que conecta la API (POSTMAN) con el Fronted
+
+```bash
+const API = "http://localhost:3000";
+
+```
+
+> [!NOTE]
+ > Los archivos `index.html` , `style.css` y `script.js` se han generado con Chat GPT
+
+
+![5](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica2/img/Fronted.png)
+
+
+## Endpoint creados funcionales,
+
+De las diferentes tablas se ha creado
