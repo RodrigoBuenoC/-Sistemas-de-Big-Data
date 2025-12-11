@@ -12,6 +12,122 @@ mongodb+srv://usuario:password@cluster0.mongodb.net/mydb?retryWrites=true&w=majo
 ![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/conectar_compass.png)
 
 
+## Introducir Datos en MongoDB
+
+```bash
+// ===============================
+//  CREACIÓN DE COLECCIONES
+// ===============================
+
+db.createCollection("restaurantes");
+db.createCollection("riders");
+db.createCollection("usuarios");
+db.createCollection("pedidos");
+
+// ===============================
+//  INSERTAR RESTAURANTES
+// ===============================
+db.restaurantes.insertMany([
+  {
+    nombre: "Burger Planet",
+    categorias: ["burgers", "fast-food"],
+    menu: [
+      { plato: "Cheeseburger", precio: 8.90 },
+      { plato: "Patatas Deluxe", precio: 3.50 },
+      { plato: "Nuggets", precio: 4.20 }
+    ]
+  },
+  {
+    nombre: "La Pasta Loca",
+    categorias: ["italiano", "pasta"],
+    menu: [
+      { plato: "Spaghetti Carbonara", precio: 9.50 },
+      { plato: "Lasaña", precio: 8.80 }
+    ]
+  }
+]);
+
+// ===============================
+//  INSERTAR RIDERS
+// ===============================
+db.riders.insertMany([
+  {
+    nombre: "Carlos",
+    vehiculo: "moto",
+    estado: "disponible"
+  },
+  {
+    nombre: "Lucia",
+    vehiculo: "bici",
+    estado: "ocupado"
+  },
+  {
+    nombre: "Javier",
+    vehiculo: "coche",
+    estado: "disponible"
+  }
+]);
+
+// ===============================
+//  INSERTAR USUARIOS
+// ===============================
+db.usuarios.insertMany([
+  {
+    nombre: "Ana García",
+    direccion: "C/ Sevilla 32",
+    telefono: "600123456"
+  },
+  {
+    nombre: "Mario Torres",
+    direccion: "Av. Extremadura 10",
+    telefono: "611987654"
+  }
+]);
+
+// ===============================
+//  INSERTAR PEDIDOS
+// ===============================
+// Necesitamos obtener IDs reales
+const restaurante1 = db.restaurantes.findOne({ nombre: "Burger Planet" })._id;
+const restaurante2 = db.restaurantes.findOne({ nombre: "La Pasta Loca" })._id;
+
+const usuario1 = db.usuarios.findOne({ nombre: "Ana García" })._id;
+const usuario2 = db.usuarios.findOne({ nombre: "Mario Torres" })._id;
+
+const rider1 = db.riders.findOne({ nombre: "Carlos" })._id;
+const rider2 = db.riders.findOne({ nombre: "Lucia" })._id;
+
+db.pedidos.insertMany([
+  {
+    usuarioId: usuario1,
+    restauranteId: restaurante1,
+    riderId: rider1,
+    items: [
+      { plato: "Cheeseburger", cantidad: 2, precio_unitario: 8.90 },
+      { plato: "Patatas Deluxe", cantidad: 1, precio_unitario: 3.50 }
+    ],
+    total: 21.30,
+    estado: "en_reparto",
+    fecha: new Date(),
+    notas: "Llamar al timbre"
+  },
+  {
+    usuarioId: usuario2,
+    restauranteId: restaurante2,
+    riderId: null,
+    items: [
+      { plato: "Spaghetti Carbonara", cantidad: 1, precio_unitario: 9.50 }
+    ],
+    total: 9.50,
+    estado: "pendiente",
+    fecha: new Date(),
+    notas: ""
+  }
+]);
+
+print("Datos cargados correctamente en MongoDB.");
+```
+
 ## Crear una API (Postman)
 
 Para ello necesitamos un archivo `index.js` para concertar la BBDD  con Postman
@@ -261,4 +377,10 @@ const API = "http://localhost:3000";
 
 ## Endpoint creados funcionales,
 
-De las diferentes tablas se ha creado
+De las diferentes tablas se ha creado un CRUD funcional
+
+ - Ver todo
+ - Ver por {id}
+ - Editar por {id}
+ - Crear 
+ - Borrar por {id}
