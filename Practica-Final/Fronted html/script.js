@@ -180,6 +180,60 @@ function borrarUsuario(){ fetch(API+"/usuarios/"+userDeleteId.value,{method:"DEL
 function borrarPedido(){ fetch(API+"/pedidos/"+pedidoDeleteId.value,{method:"DELETE"}).then(()=>{alert("Eliminado"); getPedidos();});}
 
 // ===================== CONSULTA ======================
-function consultaActivos(){
-    toggleFetchTabla("consulta", "/pedidos/activos");
+function cargarDashboard() {
+    fetch(API + "/dashboard")
+        .then(r => r.json())
+        .then(data => {
+            const container = document.getElementById("dashboard");
+            container.innerHTML = "";
+
+            for (const [coleccion, items] of Object.entries(data)) {
+                const h3 = document.createElement("h3");
+                h3.textContent = coleccion.toUpperCase();
+                container.appendChild(h3);
+
+                if (!items.length) {
+                    const p = document.createElement("p");
+                    p.textContent = "No hay datos";
+                    container.appendChild(p);
+                    continue;
+                }
+
+                const table = document.createElement("table");
+                table.classList.add("data-table");
+                const thead = document.createElement("thead");
+                const tbody = document.createElement("tbody");
+
+                // encabezados
+                const trHead = document.createElement("tr");
+                Object.keys(items[0]).forEach(key => {
+                    const th = document.createElement("th");
+                    th.textContent = key;
+                    trHead.appendChild(th);
+                });
+                thead.appendChild(trHead);
+
+                // filas
+                items.forEach(item => {
+                    const tr = document.createElement("tr");
+                    Object.values(item).forEach(v => {
+                        const td = document.createElement("td");
+                        if (Array.isArray(v)) td.textContent = v.join(", ");
+                        else if (typeof v === "object" && v !== null) td.textContent = JSON.stringify(v);
+                        else td.textContent = v;
+                        tr.appendChild(td);
+                    });
+                    tbody.appendChild(tr);
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+                container.appendChild(table);
+            }
+        })
+        .catch(err => {
+            console.error(err);
+            document.getElementById("dashboard").textContent = "Error cargando los datos";
+        });
 }
+
