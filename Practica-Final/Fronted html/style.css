@@ -1,202 +1,62 @@
-/* =============================
-   VARIABLES
-============================= */
-:root {
-
-    --primary: #2563eb;
-    --primary-dark: #1e40af;
-
-    --success: #16a34a;
-    --danger: #dc2626;
-    --info: #0891b2;
-
-    --dark: #111827;
-    --bg: #f1f5f9;
-
-    --card: #ffffff;
-    --border: #e5e7eb;
-
-    --text: #111827;
-    --muted: #6b7280;
-
-    --radius: 12px;
-
-}
-
-
-/* =============================
-   BASE
-============================= */
 body {
+    background: #fafafa;
+    font-family: Arial;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background: var(--bg);
-    color: var(--text);
+    padding: 0;
 }
 
 header {
-    background: var(--primary);
+    background: #333;
     color: white;
     padding: 20px;
     text-align: center;
 }
 
-header h1 {
-    margin: 0;
-    font-size: 28px;
-}
-
-header p {
-    margin: 6px 0 0;
-    opacity: 0.9;
-}
-
-
-/* =============================
-   GRID
-============================= */
 .container {
-    max-width: 1300px;
-    margin: 30px auto;
-    padding: 0 16px;
-
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
+    width: 90%;
+    margin: auto;
 }
 
-
-/* =============================
-   TARJETAS
-============================= */
-.box {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    padding: 22px;
+.module {
+    background: white;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ccc;
 }
 
-
-/* =============================
-   TITULOS
-============================= */
-h2 {
-    margin: 0 0 16px;
-    padding-bottom: 6px;
-    border-bottom: 2px solid var(--primary);
+.box input, select {
+    padding: 8px;
+    margin: 5px;
 }
 
-h3 {
-    margin: 20px 0 10px;
-    color: var(--muted);
-}
-
-
-/* =============================
-   FORMULARIOS
-============================= */
-input, select {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 10px;
-
-    border: 1px solid var(--border);
-    border-radius: 8px;
-
-    font-size: 14px;
-}
-
-input:focus, select:focus {
-    outline: none;
-    border-color: var(--primary);
-}
-
-.row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
-}
-
-
-/* =============================
-   BOTONES
-============================= */
 button {
-    padding: 10px 16px;
-    border-radius: 8px;
+    padding: 10px 15px;
     border: none;
-
-    background: var(--primary);
-    color: white;
-    font-weight: bold;
-
+    border-radius: 5px;
     cursor: pointer;
+    margin: 5px;
 }
 
-button:hover {
-    background: var(--primary-dark);
+.btn-primary { background: #0066cc; color: white; }
+.btn-success { background: #28a745; color: white; }
+.btn-danger { background: #dc3545; color: white; }
+.btn-info { background: #17a2b8; color: white; }
+
+pre {
+    background: #f4f4f4;
+    padding: 10px;
+    overflow: auto;
+    max-height: 300px;
 }
 
-.btn-success { background: var(--success); }
-.btn-danger  { background: var(--danger); }
-.btn-info    { background: var(--info); }
-
-
-/* =============================
-   TABLAS
-============================= */
-.data-table {
+table.data-table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 18px;
+    margin-top: 10px;
 }
 
-.data-table th,
-.data-table td {
-    padding: 12px;
-    border: 1px solid var(--border);
-    font-size: 14px;
-}
-
-.data-table th {
-    background: #f8fafc;
-    text-align: left;
-    font-weight: bold;
-}
-
-.data-table tr:hover {
-    background: #f1f5f9;
-}
-
-
-/* =============================
-   JSON / PRE
-============================= */
-pre {
-    background: #111827;
-    color: #22c55e;
-    padding: 14px;
-    border-radius: 8px;
-    margin-top: 16px;
-    overflow: auto;
-}
-
-
-/* =============================
-   ESPACIADO FINAL
-============================= */
-.module {
-    margin-bottom: 12px;
-}
-
-
-/* =============================
-   RESPONSIVE
-============================= */
-@media (max-width: 800px) {
-
-    .row {
-        grid-template-columns: 1fr;
-    }
-
+table.data-table th, table.data-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
 }

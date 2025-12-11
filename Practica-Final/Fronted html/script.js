@@ -1,10 +1,9 @@
 const API = "http://localhost:3000";
 
-// ============================
-// RENDER TABLA UNIVERSAL ✅
-// ============================
-
-function renderTablaGenerica(data, id){
+// -------------------------
+// RENDER TABLAS
+// -------------------------
+function renderTablaGenerica(data, id) {
     const container = document.getElementById(id);
 
     if (!Array.isArray(data) || data.length === 0) {
@@ -15,19 +14,16 @@ function renderTablaGenerica(data, id){
     const columnas = Object.keys(data[0]);
 
     let html = `<table class="data-table"><thead><tr>`;
-    columnas.forEach(col => html += `<th>${col}</th>`);
+    columnas.forEach(c => html += `<th>${c}</th>`);
     html += `</tr></thead><tbody>`;
 
-    data.forEach(item => {
+    data.forEach(row => {
         html += `<tr>`;
         columnas.forEach(col => {
-            let valor = item[col];
-
-            if (Array.isArray(valor)) valor = valor.join(", ");
-            if (typeof valor === "object" && valor !== null) valor = JSON.stringify(valor);
-            if (typeof valor === "string" && valor.length > 40) valor = valor.slice(0, 40) + "...";
-
-            html += `<td>${valor}</td>`;
+            let v = row[col];
+            if (Array.isArray(v)) v = v.join(", ");
+            if (typeof v === "object" && v !== null) v = JSON.stringify(v);
+            html += `<td>${v}</td>`;
         });
         html += `</tr>`;
     });
@@ -37,163 +33,153 @@ function renderTablaGenerica(data, id){
 }
 
 function toggleFetchTabla(id, endpoint) {
-    const container = document.getElementById(id);
+    const c = document.getElementById(id);
 
-    if (container.querySelector('.data-table') || container.textContent.trim() !== "") {
-        container.innerHTML = "";
+    if (c.querySelector('.data-table') || c.textContent.trim() !== "") {
+        c.innerHTML = "";
         return;
     }
 
-    fetch(`${API}${endpoint}`)
+    fetch(API + endpoint)
         .then(r => r.json())
-        .then(data => renderTablaGenerica(data, id))
-        .catch(e => {
-            console.error(`Error al obtener ${id}:`, e);
-            container.innerHTML = `<pre>${JSON.stringify({ error: e.message }, null, 2)}</pre>`;
-        });
+        .then(data => renderTablaGenerica(data, id));
 }
 
-// ============================
-// GET (TODOS EN TABLA ✅)
-// ============================
-
+// ===================== GET ======================
 function getRestaurantes(){ toggleFetchTabla("restaurantes", "/restaurantes"); }
 function getRiders(){ toggleFetchTabla("riders", "/riders"); }
 function getUsuarios(){ toggleFetchTabla("usuarios", "/usuarios"); }
 function getPedidos(){ toggleFetchTabla("pedidos", "/pedidos"); }
 
-// ============================
-// POST (CREAR)
-// ============================
-
+// ===================== CREAR ======================
 function crearRestaurante(){
-    const nombre = document.getElementById("restName").value;
-    const categorias = document.getElementById("restCat").value
-        .split(",")
-        .map(cat => cat.trim())
-        .filter(cat => cat.length > 0);
-
-    fetch(`${API}/restaurantes`, {
+    const nombre = restName.value;
+    const categorias = restCat.value.split(",").map(c => c.trim());
+    fetch(API + "/restaurantes", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, categorias })
-    })
-    .then(() => {
-        alert("🍽️ Restaurante creado!");
-        getRestaurantes();
-    });
+    }).then(() => { alert("Creado"); getRestaurantes(); });
 }
 
 function crearRider(){
-    const nombre = document.getElementById("riderName").value;
-    const vehiculo = document.getElementById("riderVeh").value;
-    const estado = document.getElementById("riderEstado").value;
-
-    fetch(`${API}/riders`, {
+    const nombre = riderName.value;
+    const vehiculo = riderVeh.value;
+    const estado = riderEstado.value;
+    fetch(API + "/riders", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, vehiculo, estado })
-    })
-    .then(() => {
-        alert("🏍️ Rider creado!");
-        getRiders();
-    });
+    }).then(() => { alert("Creado"); getRiders(); });
 }
 
 function crearUsuario(){
-    const nombre = document.getElementById("userName").value;
-    const direccion = document.getElementById("userDir").value;
-    const telefono = document.getElementById("userTel").value;
-
-    fetch(`${API}/usuarios`, {
+    const nombre = userName.value;
+    const direccion = userDir.value;
+    const telefono = userTel.value;
+    fetch(API + "/usuarios", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ nombre, direccion, telefono })
-    })
-    .then(() => {
-        alert("🧑 Usuario creado!");
-        getUsuarios();
-    });
+    }).then(() => { alert("Creado"); getUsuarios(); });
 }
 
 function crearPedido(){
-    const usuarioId = document.getElementById("pedidoUser").value;
-    const restauranteId = document.getElementById("pedidoRest").value;
-    const riderId = document.getElementById("pedidoRider").value || null;
-    const plato = document.getElementById("pedidoPlato").value;
-    const cantidad = Number(document.getElementById("pedidoCant").value);
-    const precio_unitario = Number(document.getElementById("pedidoPrecio").value);
-
-    if (!usuarioId || !restauranteId || !plato || cantidad <= 0 || precio_unitario < 0) {
-        alert("Completa todos los campos correctamente.");
-        return;
-    }
+    const usuarioId = pedidoUser.value;
+    const restauranteId = pedidoRest.value;
+    const riderId = pedidoRider.value || null;
+    const plato = pedidoPlato.value;
+    const cantidad = Number(pedidoCant.value);
+    const precio_unitario = Number(pedidoPrecio.value);
 
     const items = [{ plato, cantidad, precio_unitario }];
 
-    fetch(`${API}/pedidos`, {
+    fetch(API + "/pedidos", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {"Content-Type": "application/json"},
         body: JSON.stringify({ usuarioId, restauranteId, riderId, items })
-    })
-    .then(() => {
-        alert("📦 Pedido creado!");
-        getPedidos();
-    });
+    }).then(() => { alert("Creado"); getPedidos(); });
 }
 
-// ============================
-// DELETE
-// ============================
-
-function borrarRestaurante(){
-    const id = document.getElementById("restDeleteId").value;
-    if (!id) return;
-
-    fetch(`${API}/restaurantes/${id}`, { method: "DELETE" })
-    .then(() => {
-        alert("Restaurante eliminado!");
-        getRestaurantes();
-    });
+// ===================== VER POR ID ======================
+function verRestaurante(){
+    const id = restViewId.value;
+    fetch(API + "/restaurantes/" + id)
+        .then(r => r.json())
+        .then(data => restView.innerHTML = JSON.stringify(data, null, 2));
+}
+function verRider(){
+    const id = riderViewId.value;
+    fetch(API + "/riders/" + id)
+        .then(r => r.json())
+        .then(data => riderView.innerHTML = JSON.stringify(data, null, 2));
+}
+function verUsuario(){
+    const id = userViewId.value;
+    fetch(API + "/usuarios/" + id)
+        .then(r => r.json())
+        .then(data => usuarioView.innerHTML = JSON.stringify(data, null, 2));
+}
+function verPedido(){
+    const id = pedidoViewId.value;
+    fetch(API + "/pedidos/" + id)
+        .then(r => r.json())
+        .then(data => pedidoView.innerHTML = JSON.stringify(data, null, 2));
 }
 
-function borrarRider(){
-    const id = document.getElementById("riderDeleteId").value;
-    if (!id) return;
-
-    fetch(`${API}/riders/${id}`, { method: "DELETE" })
-    .then(() => {
-        alert("Rider eliminado!");
-        getRiders();
-    });
+// ===================== EDITAR ======================
+function editarRestaurante(){
+    const id = restEditId.value;
+    const nombre = restEditName.value;
+    const categorias = restEditCat.value.split(",").map(c => c.trim());
+    fetch(API + "/restaurantes/" + id, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ nombre, categorias })
+    }).then(() => { alert("Editado"); getRestaurantes(); });
 }
 
-function borrarUsuario(){
-    const id = document.getElementById("userDeleteId").value;
-    if (!id) return;
-
-    fetch(`${API}/usuarios/${id}`, { method: "DELETE" })
-    .then(() => {
-        alert("Usuario eliminado!");
-        getUsuarios();
-    });
+function editarRider(){
+    const id = riderEditId.value;
+    const nombre = riderEditName.value;
+    const vehiculo = riderEditVeh.value;
+    const estado = riderEditEstado.value;
+    fetch(API + "/riders/" + id, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ nombre, vehiculo, estado })
+    }).then(() => { alert("Editado"); getRiders(); });
 }
 
-function borrarPedido(){
-    const id = document.getElementById("pedidoDeleteId").value;
-    if (!id) return;
-
-    fetch(`${API}/pedidos/${id}`, { method: "DELETE" })
-    .then(() => {
-        alert("Pedido eliminado!");
-        getPedidos();
-    });
+function editarUsuario(){
+    const id = userEditId.value;
+    const nombre = userEditName.value;
+    const direccion = userEditDir.value;
+    const telefono = userEditTel.value;
+    fetch(API + "/usuarios/" + id, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ nombre, direccion, telefono })
+    }).then(() => { alert("Editado"); getUsuarios(); });
 }
 
-// ============================
-// CONSULTA COMPLEJA EN TABLA ✅
-// ============================
+function editarPedido(){
+    const id = pedidoEditId.value;
+    const estado = pedidoEditEstado.value;
+    fetch(API + "/pedidos/" + id, {
+        method: "PUT",
+        headers: {"Content-Type":"application/json"},
+        body: JSON.stringify({ estado })
+    }).then(() => { alert("Editado"); getPedidos(); });
+}
 
+// ===================== ELIMINAR ======================
+function borrarRestaurante(){ fetch(API+"/restaurantes/"+restDeleteId.value,{method:"DELETE"}).then(()=>{alert("Eliminado"); getRestaurantes();});}
+function borrarRider(){ fetch(API+"/riders/"+riderDeleteId.value,{method:"DELETE"}).then(()=>{alert("Eliminado"); getRiders();});}
+function borrarUsuario(){ fetch(API+"/usuarios/"+userDeleteId.value,{method:"DELETE"}).then(()=>{alert("Eliminado"); getUsuarios();});}
+function borrarPedido(){ fetch(API+"/pedidos/"+pedidoDeleteId.value,{method:"DELETE"}).then(()=>{alert("Eliminado"); getPedidos();});}
+
+// ===================== CONSULTA ======================
 function consultaActivos(){
     toggleFetchTabla("consulta", "/pedidos/activos");
 }

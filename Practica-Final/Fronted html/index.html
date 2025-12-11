@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🛵 Panel Delivery - Proyecto NoSQL</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <header>
@@ -33,6 +35,17 @@
                 <button onclick="borrarRestaurante()" class="btn-danger">Eliminar</button>
 
                 <pre id="restaurantes"></pre>
+                <h3>Ver por ID</h3>
+                <input id="restViewId" placeholder="ID">
+                <button onclick="verRestaurante()" class="btn-info">Ver</button>
+                <pre id="restView"></pre>
+
+                <h3>Editar restaurante</h3>
+                <input id="restEditName" placeholder="Nuevo nombre">
+                <input id="restEditCat" placeholder="Nuevas categorías (coma)">
+                <button onclick="editarRestaurante()" class="btn-primary">Editar</button>
+
+
             </div>
         </section>
 
@@ -59,6 +72,20 @@
                 <button onclick="borrarRider()" class="btn-danger">Eliminar</button>
 
                 <pre id="riders"></pre>
+                <h3>Ver por ID</h3>
+                <input id="riderViewId" placeholder="ID">
+                <button onclick="verRider()" class="btn-info">Ver</button>
+                <pre id="riderView"></pre>
+                <h3>Editar rider</h3>
+                <input id="riderEditId" placeholder="ID">
+                <input id="riderEditName" placeholder="Nuevo nombre">
+                <input id="riderEditVeh" placeholder="Nuevo vehículo">
+                <select id="riderEditEstado">
+                    <option value="disponible">disponible</option>
+                    <option value="ocupado">ocupado</option>
+                </select>
+                <button onclick="editarRider()" class="btn-primary">Editar</button>
+
             </div>
         </section>
 
@@ -82,6 +109,18 @@
                 <button onclick="borrarUsuario()" class="btn-danger">Eliminar</button>
 
                 <pre id="usuarios"></pre>
+                <h3>Ver por ID</h3>
+                <input id="userViewId" placeholder="ID">
+                <button onclick="verUsuario()" class="btn-info">Ver</button>
+                <pre id="usuarioView"></pre>
+                <h3>Editar usuario</h3>
+                <input id="userEditId" placeholder="ID">
+                <input id="userEditName" placeholder="Nuevo nombre">
+                <input id="userEditDir" placeholder="Nueva dirección">
+                <input id="userEditTel" placeholder="Nuevo teléfono">
+                <button onclick="editarUsuario()" class="btn-primary">Editar</button>
+
+
             </div>
         </section>
 
@@ -104,6 +143,23 @@
                 <button onclick="borrarPedido()" class="btn-danger">Eliminar</button>
 
                 <pre id="pedidos"></pre>
+                <h3>Ver por ID</h3>
+                <input id="pedidoViewId" placeholder="ID">
+                <button onclick="verPedido()" class="btn-info">Ver</button>
+                <pre id="pedidoView"></pre>
+                <h3>Editar pedido</h3>
+                <input id="pedidoEditId" placeholder="ID">
+
+                <select id="pedidoEditEstado">
+                    <option value="pendiente">pendiente</option>
+                    <option value="preparando">preparando</option>
+                    <option value="en camino">en camino</option>
+                    <option value="entregado">entregado</option>
+                </select>
+
+                <button onclick="editarPedido()" class="btn-primary">Editar</button>
+
+
             </div>
         </section>
 
@@ -119,4 +175,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
