@@ -303,48 +303,39 @@ app.put('/pedidos/:id', async (req, res) => {
 });
 
 app.delete('/pedidos/:id', async (req, res) => {
-  const id = oid(req.params.id);
-  res.json(await db.collection('pedidos').deleteOne({ _id: id }));
 });
 
 
-// ======================================================
-// ================ CONSULTA COMPLEJA ====================
-// ======================================================
+// ================================
+// FUNCION: MOSTRAR TODO
+// ================================
+app.get('/dashboard', async (req, res) => {
+  try {
+    const usuarios = await db.collection('usuarios').find().toArray();
 
-app.get('/pedidos/activos', async (req, res) => {
-  const pipeline = [
-    { $match: { estado: { $in: ["pendiente", "preparando", "en_reparto"] } } },
-    {
-      $lookup: {
-        from: "riders",
-        localField: "riderId",
-        foreignField: "_id",
-        as: "rider"
-      }
-    },
-    { $unwind: { path: "$rider", preserveNullAndEmptyArrays: true } },
-    {
-      $group: {
-        _id: "$rider._id",
-        rider: { $first: "$rider" },
-        pedidos: { $push: "$$ROOT" },
-        count: { $sum: 1 }
-      }
-    }
-  ];
 
-  res.json(await db.collection('pedidos').aggregate(pipeline).toArray());
+
+    const restaurantes = await db.collection('restaurantes').find().toArray();
+    const riders = await db.collection('riders').find().toArray();
+    const pedidos = await db.collection('pedidos').find().toArray();
+
+    res.json({
+      usuarios,
+      restaurantes,
+      riders,
+      pedidos
+    });
+  } catch (err) {
+    res.status(500).json({ error: err.message });
+  }
 });
+
 
 
 // ================================
 // INICIAR SERVIDOR
 // ================================
 app.listen(3000, () => console.log("API escuchando en puerto 3000"));
-
-```
-
 Para conectarlas se ejecuta el comando Node
 
 ```bash 
@@ -384,3 +375,4 @@ De las diferentes tablas se ha creado un CRUD funcional
  - Editar por {id}
  - Crear 
  - Borrar por {id}
+ - Consulta Compleja que es ver todas las tablas.
