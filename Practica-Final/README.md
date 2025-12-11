@@ -69,6 +69,10 @@ La base de datos seleccionada es **MongoDB**, un sistema NoSQL orientado a docum
 
 ---
 
+
+
+![1](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Practica-Final/img/er.png)
+
 ## 4. Conclusión
 
 El problema elegido y la base de datos MongoDB forman un conjunto ideal para un proyecto académico.  
