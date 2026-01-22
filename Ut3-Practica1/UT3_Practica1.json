@@ -30,13 +30,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "oMKYGL7tYnXn",
-        "outputId": "c93b43a4-a3e5-421f-ebdd-f945fac3e2c0"
+        "outputId": "f925f4d7-38a6-4208-dc55-ca43895eea9b"
       },
-      "execution_count": 218,
+      "execution_count": 1,
       "outputs": [
         {
           "output_type": "stream",
@@ -66,19 +65,19 @@
       "metadata": {
         "id": "gDKfk_zFWEPO"
       },
-      "execution_count": 219,
+      "execution_count": 2,
       "outputs": []
     },
     {
       "cell_type": "code",
-      "execution_count": 220,
+      "execution_count": 3,
       "metadata": {
         "colab": {
           "base_uri": "https://localhost:8080/",
           "height": 424
         },
         "id": "6dY8B4vdESf7",
-        "outputId": "2145198e-36de-4364-ed30-2e1472f95a5b"
+        "outputId": "949da72b-47e7-46e3-ded2-a610bc1c7201"
       },
       "outputs": [
         {
@@ -102,7 +101,7 @@
             ],
             "text/html": [
               "\n",
-              "  <div id=\"df-3f26f6d1-8c32-4991-a844-ca8c816c00f2\" class=\"colab-df-container\">\n",
+              "  <div id=\"df-eb9b6abe-aeef-4cbc-9f21-33b309102318\" class=\"colab-df-container\">\n",
               "    <div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
@@ -224,7 +223,7 @@
               "    <div class=\"colab-df-buttons\">\n",
               "\n",
               "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-3f26f6d1-8c32-4991-a844-ca8c816c00f2')\"\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-eb9b6abe-aeef-4cbc-9f21-33b309102318')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
               "\n",
@@ -276,12 +275,12 @@
               "\n",
               "    <script>\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#df-3f26f6d1-8c32-4991-a844-ca8c816c00f2 button.colab-df-convert');\n",
+              "        document.querySelector('#df-eb9b6abe-aeef-4cbc-9f21-33b309102318 button.colab-df-convert');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
               "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-3f26f6d1-8c32-4991-a844-ca8c816c00f2');\n",
+              "        const element = document.querySelector('#df-eb9b6abe-aeef-4cbc-9f21-33b309102318');\n",
               "        const dataTable =\n",
               "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
               "                                                    [key], {});\n",
@@ -311,7 +310,7 @@
             }
           },
           "metadata": {},
-          "execution_count": 220
+          "execution_count": 3
         }
       ],
       "source": [
@@ -327,7 +326,7 @@
       "metadata": {
         "id": "ryItJtqVQkyW"
       },
-      "execution_count": 221,
+      "execution_count": 4,
       "outputs": []
     },
     {
@@ -350,14 +349,13 @@
     },
     {
       "cell_type": "code",
-      "execution_count": 222,
+      "execution_count": 5,
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "f2b358a9",
-        "outputId": "7c7dc52e-fa98-4b8e-af27-4aa02894b6f9"
+        "outputId": "9defcaa7-8ff6-4af7-e24d-28b44da7d945"
       },
       "outputs": [
         {
@@ -368,7 +366,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 222
+          "execution_count": 5
         }
       ],
       "source": [
@@ -384,7 +382,7 @@
       "metadata": {
         "id": "EGt_b263XN8f"
       },
-      "execution_count": 223,
+      "execution_count": 6,
       "outputs": []
     },
     {
@@ -394,13 +392,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "uS-isONLXPAN",
-        "outputId": "b0890a8b-50a1-478c-f1ed-886a8fecabed"
+        "outputId": "86974835-4205-4de2-f7c8-8138c76fa279"
       },
-      "execution_count": 224,
+      "execution_count": 7,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -410,7 +407,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 224
+          "execution_count": 7
         }
       ]
     },
@@ -430,13 +427,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "r0Cdmj4QXQvO",
-        "outputId": "045d5043-c532-496d-cc49-013562df306a"
+        "outputId": "1343ffca-62c9-424c-933a-20f03e627e95"
       },
-      "execution_count": 225,
+      "execution_count": 8,
       "outputs": [
         {
           "output_type": "stream",
@@ -466,13 +462,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "tMCr49UKdIxP",
-        "outputId": "8f15633f-1c2f-4740-f203-19afb4021f7d"
+        "outputId": "90cb338d-21e1-45b7-be1b-523023a3581b"
       },
-      "execution_count": 226,
+      "execution_count": 9,
       "outputs": [
         {
           "output_type": "stream",
@@ -505,7 +500,7 @@
       "metadata": {
         "id": "zHLRx50udPGo"
       },
-      "execution_count": 227,
+      "execution_count": 10,
       "outputs": []
     },
     {
@@ -515,13 +510,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "3OZTQITydjSo",
-        "outputId": "0534fe75-94f6-4432-c3aa-907cae062852"
+        "outputId": "4d429db3-bb69-419d-9549-9b2fb7e6e689"
       },
-      "execution_count": 228,
+      "execution_count": 11,
       "outputs": [
         {
           "output_type": "stream",
@@ -550,7 +544,7 @@
       "metadata": {
         "id": "O9a3PwvLf4aW"
       },
-      "execution_count": 229,
+      "execution_count": 12,
       "outputs": []
     },
     {
@@ -565,9 +559,9 @@
           "height": 241
         },
         "id": "_qIXWF1egDve",
-        "outputId": "31f4504b-2477-4f61-d5fc-e4375dcbe507"
+        "outputId": "9fc3a9a8-321c-47d6-92ad-26a8e1a1b54f"
       },
-      "execution_count": 230,
+      "execution_count": 13,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -629,7 +623,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 230
+          "execution_count": 13
         }
       ]
     },
@@ -644,9 +638,9 @@
           "height": 424
         },
         "id": "xwMbQFzRf71Q",
-        "outputId": "f322cf75-c79a-46c8-c25a-5ac4c1c59164"
+        "outputId": "df6dc6f9-08d8-445b-8818-7fdb3fd0c7f7"
       },
-      "execution_count": 231,
+      "execution_count": 14,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -669,7 +663,7 @@
             ],
             "text/html": [
               "\n",
-              "  <div id=\"df-1056a11f-1648-447a-8def-80602e80ab4b\" class=\"colab-df-container\">\n",
+              "  <div id=\"df-e499b4f3-7694-4fdf-847b-29ede2aff5ab\" class=\"colab-df-container\">\n",
               "    <div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
@@ -791,7 +785,7 @@
               "    <div class=\"colab-df-buttons\">\n",
               "\n",
               "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-1056a11f-1648-447a-8def-80602e80ab4b')\"\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-e499b4f3-7694-4fdf-847b-29ede2aff5ab')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
               "\n",
@@ -843,12 +837,12 @@
               "\n",
               "    <script>\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#df-1056a11f-1648-447a-8def-80602e80ab4b button.colab-df-convert');\n",
+              "        document.querySelector('#df-e499b4f3-7694-4fdf-847b-29ede2aff5ab button.colab-df-convert');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
               "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-1056a11f-1648-447a-8def-80602e80ab4b');\n",
+              "        const element = document.querySelector('#df-e499b4f3-7694-4fdf-847b-29ede2aff5ab');\n",
               "        const dataTable =\n",
               "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
               "                                                    [key], {});\n",
@@ -877,7 +871,7 @@
             }
           },
           "metadata": {},
-          "execution_count": 231
+          "execution_count": 14
         }
       ]
     },
@@ -889,7 +883,7 @@
       "metadata": {
         "id": "VJmVZUyWgYql"
       },
-      "execution_count": 232,
+      "execution_count": 15,
       "outputs": []
     },
     {
@@ -898,7 +892,7 @@
       "metadata": {
         "id": "JbPh80NKSSZw"
       },
-      "execution_count": 232,
+      "execution_count": 15,
       "outputs": []
     },
     {
@@ -912,9 +906,9 @@
           "height": 424
         },
         "id": "xjR3aM1GgjwI",
-        "outputId": "e462683f-e2fc-410e-f29b-704c721decff"
+        "outputId": "c30b3a44-5d48-45d8-8bc0-3a71bb42563b"
       },
-      "execution_count": 233,
+      "execution_count": 16,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -937,7 +931,7 @@
             ],
             "text/html": [
               "\n",
-              "  <div id=\"df-98b81866-d0ea-431d-811f-a98ddb502c54\" class=\"colab-df-container\">\n",
+              "  <div id=\"df-3ee3bf42-dc9c-4416-8111-cb77ab47da3e\" class=\"colab-df-container\">\n",
               "    <div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
@@ -1059,7 +1053,7 @@
               "    <div class=\"colab-df-buttons\">\n",
               "\n",
               "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-98b81866-d0ea-431d-811f-a98ddb502c54')\"\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-3ee3bf42-dc9c-4416-8111-cb77ab47da3e')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
               "\n",
@@ -1111,12 +1105,12 @@
               "\n",
               "    <script>\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#df-98b81866-d0ea-431d-811f-a98ddb502c54 button.colab-df-convert');\n",
+              "        document.querySelector('#df-3ee3bf42-dc9c-4416-8111-cb77ab47da3e button.colab-df-convert');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
               "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-98b81866-d0ea-431d-811f-a98ddb502c54');\n",
+              "        const element = document.querySelector('#df-3ee3bf42-dc9c-4416-8111-cb77ab47da3e');\n",
               "        const dataTable =\n",
               "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
               "                                                    [key], {});\n",
@@ -1136,7 +1130,7 @@
               "  </div>\n",
               "\n",
               "\n",
-              "  <div id=\"id_f5fbe5ac-9aa7-486c-8dd1-4b46253714ab\">\n",
+              "  <div id=\"id_ef0c2726-e762-4bc8-bb2c-53085aa2c2b8\">\n",
               "    <style>\n",
               "      .colab-df-generate {\n",
               "        background-color: #E8F0FE;\n",
@@ -1180,7 +1174,7 @@
               "    <script>\n",
               "      (() => {\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#id_f5fbe5ac-9aa7-486c-8dd1-4b46253714ab button.colab-df-generate');\n",
+              "        document.querySelector('#id_ef0c2726-e762-4bc8-bb2c-53085aa2c2b8 button.colab-df-generate');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
@@ -1201,7 +1195,7 @@
             }
           },
           "metadata": {},
-          "execution_count": 233
+          "execution_count": 16
         }
       ]
     },
@@ -1222,13 +1216,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "3v77OqYUNzlQ",
-        "outputId": "2c1809d8-b871-4694-fdbf-30dc6a7daa59"
+        "outputId": "6daf800f-f246-48e1-90af-37a9d54dd095"
       },
-      "execution_count": 234,
+      "execution_count": 17,
       "outputs": [
         {
           "output_type": "stream",
@@ -1247,7 +1240,7 @@
       "metadata": {
         "id": "PpkdBdYQTR2C"
       },
-      "execution_count": 235,
+      "execution_count": 18,
       "outputs": []
     },
     {
@@ -1259,7 +1252,7 @@
       "metadata": {
         "id": "cCCfgIqEOEVF"
       },
-      "execution_count": 236,
+      "execution_count": 19,
       "outputs": []
     },
     {
@@ -1270,13 +1263,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "mQ70kWzPOQZD",
-        "outputId": "85b7a7f0-7534-4457-c33f-5f20756b6db8"
+        "outputId": "49031dec-0adc-45d8-e157-1720040793ea"
       },
-      "execution_count": 237,
+      "execution_count": 20,
       "outputs": [
         {
           "output_type": "stream",
@@ -1304,13 +1296,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "w2UKRL1jOowJ",
-        "outputId": "37ae52ac-5706-4d78-a0b7-68aa5b5588d8"
+        "outputId": "b680fabd-62cc-4dbd-9e34-60c351dda8af"
       },
-      "execution_count": 238,
+      "execution_count": 21,
       "outputs": [
         {
           "output_type": "stream",
@@ -1333,9 +1324,9 @@
           "height": 424
         },
         "id": "yKMObEIVO0zP",
-        "outputId": "948e3ed4-d733-43e8-e664-4e4d56a15b96"
+        "outputId": "4bb9fdc7-02b7-4869-decc-f85caf4aa78f"
       },
-      "execution_count": 239,
+      "execution_count": 22,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1358,7 +1349,7 @@
             ],
             "text/html": [
               "\n",
-              "  <div id=\"df-7a4a0b65-6876-4bac-a381-008f68417bc1\" class=\"colab-df-container\">\n",
+              "  <div id=\"df-68db2080-a42e-4932-bb45-3d936b885783\" class=\"colab-df-container\">\n",
               "    <div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
@@ -1480,7 +1471,7 @@
               "    <div class=\"colab-df-buttons\">\n",
               "\n",
               "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-7a4a0b65-6876-4bac-a381-008f68417bc1')\"\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-68db2080-a42e-4932-bb45-3d936b885783')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
               "\n",
@@ -1532,12 +1523,12 @@
               "\n",
               "    <script>\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#df-7a4a0b65-6876-4bac-a381-008f68417bc1 button.colab-df-convert');\n",
+              "        document.querySelector('#df-68db2080-a42e-4932-bb45-3d936b885783 button.colab-df-convert');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
               "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-7a4a0b65-6876-4bac-a381-008f68417bc1');\n",
+              "        const element = document.querySelector('#df-68db2080-a42e-4932-bb45-3d936b885783');\n",
               "        const dataTable =\n",
               "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
               "                                                    [key], {});\n",
@@ -1557,7 +1548,7 @@
               "  </div>\n",
               "\n",
               "\n",
-              "  <div id=\"id_0f9bc4de-478e-46b4-9512-2fb75ca93e8c\">\n",
+              "  <div id=\"id_bac611dd-f92f-4dc3-9001-10fe36273cc2\">\n",
               "    <style>\n",
               "      .colab-df-generate {\n",
               "        background-color: #E8F0FE;\n",
@@ -1601,7 +1592,7 @@
               "    <script>\n",
               "      (() => {\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#id_0f9bc4de-478e-46b4-9512-2fb75ca93e8c button.colab-df-generate');\n",
+              "        document.querySelector('#id_bac611dd-f92f-4dc3-9001-10fe36273cc2 button.colab-df-generate');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
@@ -1622,7 +1613,7 @@
             }
           },
           "metadata": {},
-          "execution_count": 239
+          "execution_count": 22
         }
       ]
     },
@@ -1656,7 +1647,7 @@
       "metadata": {
         "id": "Vn8dwZYWPJsk"
       },
-      "execution_count": 240,
+      "execution_count": 23,
       "outputs": []
     },
     {
@@ -1666,13 +1657,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "PCBnkpSWPMEM",
-        "outputId": "5350d415-24ac-4a51-aec4-b120d866b58d"
+        "outputId": "7af1c066-ee0c-4542-ff74-0d99bf95f8ac"
       },
-      "execution_count": 241,
+      "execution_count": 24,
       "outputs": [
         {
           "output_type": "stream",
@@ -1703,9 +1693,9 @@
           "height": 424
         },
         "id": "xJoNoiZhPePe",
-        "outputId": "10618e69-15cc-4775-fdef-b7768fbd08b4"
+        "outputId": "0e0f40a7-58ac-4830-97c8-6337a84c2119"
       },
-      "execution_count": 242,
+      "execution_count": 25,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -1719,7 +1709,7 @@
               "4          5  2023-12-05            shuriken   548.51        10\n",
               "...      ...         ...                 ...      ...       ...\n",
               "15446  14996  2023-09-30         tantoMadera  1230.85         9\n",
-              "15447  14997  2026-01-18         katanaAcero   682.04         7\n",
+              "15447  14997  2026-01-21         katanaAcero   682.04         7\n",
               "15448  14998  2023-04-22         kunaiHierro  1458.33         4\n",
               "15449  14999  2023-07-11            shuriken  1263.68         5\n",
               "15450  15000  2023-04-20            shuriken    75.76         6\n",
@@ -1728,7 +1718,7 @@
             ],
             "text/html": [
               "\n",
-              "  <div id=\"df-5f3db245-3253-4589-b068-5416b1834802\" class=\"colab-df-container\">\n",
+              "  <div id=\"df-469bc9aa-f7ff-4696-9fa6-888a98329e3e\" class=\"colab-df-container\">\n",
               "    <div>\n",
               "<style scoped>\n",
               "    .dataframe tbody tr th:only-of-type {\n",
@@ -1814,7 +1804,7 @@
               "    <tr>\n",
               "      <th>15447</th>\n",
               "      <td>14997</td>\n",
-              "      <td>2026-01-18</td>\n",
+              "      <td>2026-01-21</td>\n",
               "      <td>katanaAcero</td>\n",
               "      <td>682.04</td>\n",
               "      <td>7</td>\n",
@@ -1850,7 +1840,7 @@
               "    <div class=\"colab-df-buttons\">\n",
               "\n",
               "  <div class=\"colab-df-container\">\n",
-              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-5f3db245-3253-4589-b068-5416b1834802')\"\n",
+              "    <button class=\"colab-df-convert\" onclick=\"convertToInteractive('df-469bc9aa-f7ff-4696-9fa6-888a98329e3e')\"\n",
               "            title=\"Convert this dataframe to an interactive table.\"\n",
               "            style=\"display:none;\">\n",
               "\n",
@@ -1902,12 +1892,12 @@
               "\n",
               "    <script>\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#df-5f3db245-3253-4589-b068-5416b1834802 button.colab-df-convert');\n",
+              "        document.querySelector('#df-469bc9aa-f7ff-4696-9fa6-888a98329e3e button.colab-df-convert');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
               "      async function convertToInteractive(key) {\n",
-              "        const element = document.querySelector('#df-5f3db245-3253-4589-b068-5416b1834802');\n",
+              "        const element = document.querySelector('#df-469bc9aa-f7ff-4696-9fa6-888a98329e3e');\n",
               "        const dataTable =\n",
               "          await google.colab.kernel.invokeFunction('convertToInteractive',\n",
               "                                                    [key], {});\n",
@@ -1927,7 +1917,7 @@
               "  </div>\n",
               "\n",
               "\n",
-              "  <div id=\"id_c4bdbc95-728b-4c38-9bd1-4730ebea9859\">\n",
+              "  <div id=\"id_3f992941-e6dd-4622-9839-4ce176c602b9\">\n",
               "    <style>\n",
               "      .colab-df-generate {\n",
               "        background-color: #E8F0FE;\n",
@@ -1971,7 +1961,7 @@
               "    <script>\n",
               "      (() => {\n",
               "      const buttonEl =\n",
-              "        document.querySelector('#id_c4bdbc95-728b-4c38-9bd1-4730ebea9859 button.colab-df-generate');\n",
+              "        document.querySelector('#id_3f992941-e6dd-4622-9839-4ce176c602b9 button.colab-df-generate');\n",
               "      buttonEl.style.display =\n",
               "        google.colab.kernel.accessAllowed ? 'block' : 'none';\n",
               "\n",
@@ -1988,11 +1978,11 @@
             "application/vnd.google.colaboratory.intrinsic+json": {
               "type": "dataframe",
               "variable_name": "df",
-              "summary": "{\n  \"name\": \"df\",\n  \"rows\": 14702,\n  \"fields\": [\n    {\n      \"column\": \"id\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 4332,\n        \"min\": 1,\n        \"max\": 15000,\n        \"num_unique_values\": 14702,\n        \"samples\": [\n          9854,\n          8662,\n          3788\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"fecha\",\n      \"properties\": {\n        \"dtype\": \"date\",\n        \"min\": \"2023-01-01\",\n        \"max\": \"2026-01-18\",\n        \"num_unique_values\": 368,\n        \"samples\": [\n          \"2023-05-09\",\n          \"2023-01-21\",\n          \"2023-04-29\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"producto\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 6,\n        \"samples\": [\n          \"bokenEntrenamiento\",\n          \"katanaAcero\",\n          \"kunaiHierro\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"precio\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 407.1674978946322,\n        \"min\": 10.04,\n        \"max\": 1499.76,\n        \"num_unique_values\": 12681,\n        \"samples\": [\n          37.44,\n          407.93,\n          159.51\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"cantidad\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 2,\n        \"min\": 1,\n        \"max\": 10,\n        \"num_unique_values\": 10,\n        \"samples\": [\n          3,\n          9,\n          1\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
+              "summary": "{\n  \"name\": \"df\",\n  \"rows\": 14702,\n  \"fields\": [\n    {\n      \"column\": \"id\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 4332,\n        \"min\": 1,\n        \"max\": 15000,\n        \"num_unique_values\": 14702,\n        \"samples\": [\n          9854,\n          8662,\n          3788\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"fecha\",\n      \"properties\": {\n        \"dtype\": \"date\",\n        \"min\": \"2023-01-01\",\n        \"max\": \"2026-01-21\",\n        \"num_unique_values\": 368,\n        \"samples\": [\n          \"2023-05-09\",\n          \"2023-01-21\",\n          \"2023-04-29\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"producto\",\n      \"properties\": {\n        \"dtype\": \"category\",\n        \"num_unique_values\": 6,\n        \"samples\": [\n          \"bokenEntrenamiento\",\n          \"katanaAcero\",\n          \"kunaiHierro\"\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"precio\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 407.1674978946322,\n        \"min\": 10.04,\n        \"max\": 1499.76,\n        \"num_unique_values\": 12681,\n        \"samples\": [\n          37.44,\n          407.93,\n          159.51\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    },\n    {\n      \"column\": \"cantidad\",\n      \"properties\": {\n        \"dtype\": \"number\",\n        \"std\": 2,\n        \"min\": 1,\n        \"max\": 10,\n        \"num_unique_values\": 10,\n        \"samples\": [\n          3,\n          9,\n          1\n        ],\n        \"semantic_type\": \"\",\n        \"description\": \"\"\n      }\n    }\n  ]\n}"
             }
           },
           "metadata": {},
-          "execution_count": 242
+          "execution_count": 25
         }
       ]
     },
@@ -2003,13 +1993,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "XpoSockpPnSb",
-        "outputId": "14d1b3c8-3712-494d-df22-ab38579b38a2"
+        "outputId": "a1422e50-d0c4-4bf8-a9ca-bef4ba7e66db"
       },
-      "execution_count": 243,
+      "execution_count": 26,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -2019,7 +2008,7 @@
             ]
           },
           "metadata": {},
-          "execution_count": 243
+          "execution_count": 26
         }
       ]
     },
@@ -2039,13 +2028,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "S1uPFHG6Qu_d",
-        "outputId": "7baee6d6-1e9d-431c-e83d-99658858f24f"
+        "outputId": "527434b4-dd10-4965-9aa3-b8e5a8f185d2"
       },
-      "execution_count": 244,
+      "execution_count": 27,
       "outputs": [
         {
           "output_type": "stream",
@@ -2064,7 +2052,7 @@
       "metadata": {
         "id": "yQWj61a6Q2h_"
       },
-      "execution_count": 245,
+      "execution_count": 28,
       "outputs": []
     },
     {
@@ -2075,7 +2063,7 @@
       "metadata": {
         "id": "AuoYpnqwRnB3"
       },
-      "execution_count": 246,
+      "execution_count": 29,
       "outputs": []
     },
     {
@@ -2085,13 +2073,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "4t4HRueeR0bL",
-        "outputId": "97e770f9-8dfc-46f3-af1f-11fd9e001ad8"
+        "outputId": "4555645e-4b30-4ad7-d9fc-27b2c52b2232"
       },
-      "execution_count": 247,
+      "execution_count": 30,
       "outputs": [
         {
           "output_type": "stream",
@@ -2109,13 +2096,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "5q4gFfSmSYFM",
-        "outputId": "792d6ebc-88a2-45f7-9f55-cc622d96e28b"
+        "outputId": "349a4bc2-5afe-4563-8751-4bfd44973e5b"
       },
-      "execution_count": 248,
+      "execution_count": 31,
       "outputs": [
         {
           "output_type": "stream",
@@ -2133,13 +2119,12 @@
       ],
       "metadata": {
         "colab": {
-          "base_uri": "https://localhost:8080/",
-          "height": 0
+          "base_uri": "https://localhost:8080/"
         },
         "id": "Qjb4gkeCS1s2",
-        "outputId": "7c26bc11-397c-47fd-ef4e-99ef746f75ca"
+        "outputId": "655f381d-392b-4b82-8693-37e5d746bde3"
       },
-      "execution_count": 249,
+      "execution_count": 32,
       "outputs": [
         {
           "output_type": "stream",
@@ -2149,6 +2134,28 @@
           ]
         }
       ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.to_csv(\"ventas_big_data_ut3-modificado.csv\", index=False)\n"
+      ],
+      "metadata": {
+        "id": "Rwr3zQ5hZ3I-"
+      },
+      "execution_count": 33,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "df.to_json(\"ventas_big_data_ut3-modificado.json\", index=False)\n"
+      ],
+      "metadata": {
+        "id": "Ep4PAdhzaLRm"
+      },
+      "execution_count": 34,
+      "outputs": []
     }
   ]
 }
