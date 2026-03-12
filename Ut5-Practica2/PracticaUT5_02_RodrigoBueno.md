@@ -11,7 +11,7 @@
 
 ## Buscar por otro que no sea la Partition Key (Clan)
 
-![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Ut5-Practica2/img/VerClany.png)
+![3](https://github.com/RodrigoBuenoC/-Sistemas-de-Big-Data/blob/main/Ut5-Practica2/img/VerClan.png)
 
 
 ## Qué es Gsi
