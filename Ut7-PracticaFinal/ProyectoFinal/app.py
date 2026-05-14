@@ -5,7 +5,7 @@ from sklearn.preprocessing import MinMaxScaler
 from scipy.spatial.distance import euclidean
 import plotly.graph_objects as go
 # Cargar CSV
-players = pd.read_csv("players_data.csv")
+players = pd.read_csv("Ut7-PracticaFinal/ProyectoFinal/players_data.csv")
 
 # Mostrar tabla
 st.dataframe(players)
