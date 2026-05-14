@@ -12,7 +12,9 @@ st.dataframe(players)
 
 @st.cache_data
 def cargar_datos():
-    df = pd.read_csv("players_data.csv")
+    df = pd.read_csv(
+        "Ut7-PracticaFinal/ProyectoFinal/players_data.csv"
+    )
     return df
 
 players = cargar_datos()
